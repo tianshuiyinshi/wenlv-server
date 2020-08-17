@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.CatalogMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.Catalog">
+    <id column="catalogid" jdbcType="INTEGER" property="catalogid" />
+    <result column="catalogname" jdbcType="VARCHAR" property="catalogname" />
+    <result column="tableid" jdbcType="INTEGER" property="tableid" />
+    <result column="catalogtype" jdbcType="INTEGER" property="catalogtype" />
+    <result column="catalogimage" jdbcType="VARCHAR" property="catalogimage" />
+    <result column="catalogdisplaystyle" jdbcType="INTEGER" property="catalogdisplaystyle" />
+    <result column="cataloglink" jdbcType="VARCHAR" property="cataloglink" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    catalogid, catalogname, tableid, catalogtype, catalogimage, catalogdisplaystyle, cataloglink,
+    status, creator, createtime, updater, updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_catalog
+    where catalogid = #{catalogid,jdbcType=INTEGER}
+  </select>
+    <select id="selectAllRows" parameterType="com.zte.bean.vo.CatalogVo" resultType="com.zte.bean.vo.CatalogVo">
+      select
+      <include refid="Base_Column_List"></include>
+      from t_catalog
+      <where>
+        <if test="catalogid !=null">
+          and catalogid = #{catalogid}
+        </if>
+        <if test="catalogname !=null">
+          catalogname like CONCAT('%',#{catalogname},'%')
+        </if>
+        <if test="tableid !=null">
+          and tableid = #{tableid}
+        </if>
+        <if test="catalogtype !=null">
+          and catalogtype = #{catalogtype}
+        </if>
+        <if test="status !=null">
+          and status = #{status}
+        </if>
+        <if test="creator !=null">
+          and creator = #{creator}
+        </if>
+        <if test="updater !=null">
+          and updater = #{updater}
+        </if>
+      </where>
+      order by updatetime desc
+    </select>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_catalog
+    where catalogname = #{catalogName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_catalog
+    where catalogid = #{catalogid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.Catalog">
+    insert into t_catalog (catalogid, catalogname, tableid,catalogtype,
+      catalogimage, catalogdisplaystyle, cataloglink, 
+      status, creator, createtime, 
+      updater, updatetime)
+    values (#{catalogid,jdbcType=INTEGER}, #{catalogname,jdbcType=VARCHAR},#{tableid,jdbcType=INTEGER}, #{catalogtype,jdbcType=INTEGER},
+      #{catalogimage,jdbcType=VARCHAR}, #{catalogdisplaystyle,jdbcType=INTEGER}, #{cataloglink,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, 
+      #{updater,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.Catalog">
+    insert into t_catalog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="catalogid != null">
+        catalogid,
+      </if>
+      <if test="catalogname != null">
+        catalogname,
+      </if>
+      <if test="tableid != null">
+        tableid,
+      </if>
+      <if test="catalogtype != null">
+        catalogtype,
+      </if>
+      <if test="catalogimage != null">
+        catalogimage,
+      </if>
+      <if test="catalogdisplaystyle != null">
+        catalogdisplaystyle,
+      </if>
+      <if test="cataloglink != null">
+        cataloglink,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="catalogid != null">
+        #{catalogid,jdbcType=INTEGER},
+      </if>
+      <if test="catalogname != null">
+        #{catalogname,jdbcType=VARCHAR},
+      </if>
+      <if test="tableid != null">
+        #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="catalogtype != null">
+        #{catalogtype,jdbcType=INTEGER},
+      </if>
+      <if test="catalogimage != null">
+        #{catalogimage,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogdisplaystyle != null">
+        #{catalogdisplaystyle,jdbcType=INTEGER},
+      </if>
+      <if test="cataloglink != null">
+        #{cataloglink,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.Catalog">
+    update t_catalog
+    <set>
+      <if test="catalogname != null">
+        catalogname = #{catalogname,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogtype != null">
+        catalogtype = #{catalogtype,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        tableid = #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="catalogimage != null">
+        catalogimage = #{catalogimage,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogdisplaystyle != null">
+        catalogdisplaystyle = #{catalogdisplaystyle,jdbcType=INTEGER},
+      </if>
+      <if test="cataloglink != null">
+        cataloglink = #{cataloglink,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where catalogid = #{catalogid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.Catalog">
+    update t_catalog
+    set catalogname = #{catalogname,jdbcType=VARCHAR},
+      catalogtype = #{catalogtype,jdbcType=INTEGER},
+      tableid = #{tableid,jdbcType=INTEGER},
+      catalogimage = #{catalogimage,jdbcType=VARCHAR},
+      catalogdisplaystyle = #{catalogdisplaystyle,jdbcType=INTEGER},
+      cataloglink = #{cataloglink,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR}
+    where catalogid = #{catalogid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.ResourceBespeakMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.ResourceBespeak">
+    <id column="bespeakid" jdbcType="INTEGER" property="bespeakid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="resourceid" jdbcType="INTEGER" property="resourceid" />
+    <result column="resourcetoptypeid" jdbcType="INTEGER" property="resourcetoptypeid" />
+    <result column="resourcetypeid" jdbcType="INTEGER" property="resourcetypeid" />
+    <result column="bespeakday" jdbcType="VARCHAR" property="bespeakday" />
+    <result column="bespeaklinkman" jdbcType="VARCHAR" property="bespeaklinkman" />
+    <result column="bespeaklinkmobile" jdbcType="VARCHAR" property="bespeaklinkmobile" />
+    <result column="bespeakamount" jdbcType="INTEGER" property="bespeakamount" />
+    <result column="adultamount" jdbcType="INTEGER" property="adultamount" />
+    <result column="minoramount" jdbcType="INTEGER" property="minoramount" />
+    <result column="tableid" jdbcType="INTEGER" property="tableid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="renouncetime" jdbcType="VARCHAR" property="renouncetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bespeakid, userid, resourceid, resourcetoptypeid, resourcetypeid, bespeakday, bespeaklinkman, 
+    bespeaklinkmobile, bespeakamount, adultamount, minoramount, tableid, status, createtime, 
+    renouncetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_resource_bespeak
+    where bespeakid = #{bespeakid,jdbcType=INTEGER}
+  </select>
+    <select id="selectAllRows" parameterType="com.zte.bean.vo.ResourceBespeakVo" resultType="com.zte.bean.vo.ResourceBespeakVo">
+      select 
+      distinct b.*
+      from t_resource_bespeak b,t_resource_site s,t_resource_activity a
+      <where>
+        <if test="bespeakid != null">
+          and b.bespeakid = #{bespeakid,jdbcType=INTEGER}
+        </if>
+        <if test="userid != null">
+          and b.userid = #{userid,jdbcType=INTEGER}
+        </if>
+        <if test="resourceid != null">
+          and b.resourceid = #{resourceid,jdbcType=INTEGER}
+        </if>
+        <if test="bespeakday != null">
+          and b.bespeakday like concat('%',#{bespeakday},'%')
+        </if>
+        <if test="resourcetoptypeid != null">
+          and b.resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER}
+        </if>
+        <if test="status != null">
+          and b.status = #{status,jdbcType=INTEGER}
+        </if>
+        <if test="startTime != null and endTime != null">
+          and b.createtime &gt;= #{startTime} and b.createtime &lt;= #{endTime}
+        </if>
+        <if test="resourceSiteVo != null">
+          and s.resourcetitle like concat('%',#{resourceSiteVo.resourcetitle},'%')
+          and s.resourceid=b.resourceid
+        </if>
+        <if test="resourceActivityVo != null">
+          and a.resourcetitle like concat('%',#{resourceActivityVo.resourcetitle},'%')
+          and a.resourceid=b.resourceid
+        </if>
+      </where>
+      order by createtime desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_resource_bespeak
+    where bespeakid = #{bespeakid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.ResourceBespeak">
+    insert into t_resource_bespeak (bespeakid, userid, resourceid, 
+      resourcetoptypeid, resourcetypeid, bespeakday, 
+      bespeaklinkman, bespeaklinkmobile, bespeakamount, 
+      adultamount, minoramount, tableid, 
+      status, createtime, renouncetime
+      )
+    values (#{bespeakid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{resourceid,jdbcType=INTEGER}, 
+      #{resourcetoptypeid,jdbcType=INTEGER}, #{resourcetypeid,jdbcType=INTEGER}, #{bespeakday,jdbcType=VARCHAR}, 
+      #{bespeaklinkman,jdbcType=VARCHAR}, #{bespeaklinkmobile,jdbcType=VARCHAR}, #{bespeakamount,jdbcType=INTEGER}, 
+      #{adultamount,jdbcType=INTEGER}, #{minoramount,jdbcType=INTEGER}, #{tableid,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, #{renouncetime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.ResourceBespeak">
+    insert into t_resource_bespeak
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bespeakid != null">
+        bespeakid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="resourceid != null">
+        resourceid,
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid,
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid,
+      </if>
+      <if test="bespeakday != null">
+        bespeakday,
+      </if>
+      <if test="bespeaklinkman != null">
+        bespeaklinkman,
+      </if>
+      <if test="bespeaklinkmobile != null">
+        bespeaklinkmobile,
+      </if>
+      <if test="bespeakamount != null">
+        bespeakamount,
+      </if>
+      <if test="adultamount != null">
+        adultamount,
+      </if>
+      <if test="minoramount != null">
+        minoramount,
+      </if>
+      <if test="tableid != null">
+        tableid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="renouncetime != null">
+        renouncetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bespeakid != null">
+        #{bespeakid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="bespeakday != null">
+        #{bespeakday,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeaklinkman != null">
+        #{bespeaklinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeaklinkmobile != null">
+        #{bespeaklinkmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeakamount != null">
+        #{bespeakamount,jdbcType=INTEGER},
+      </if>
+      <if test="adultamount != null">
+        #{adultamount,jdbcType=INTEGER},
+      </if>
+      <if test="minoramount != null">
+        #{minoramount,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="renouncetime != null">
+        #{renouncetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceBespeak">
+    update t_resource_bespeak
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        resourceid = #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="bespeakday != null">
+        bespeakday = #{bespeakday,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeaklinkman != null">
+        bespeaklinkman = #{bespeaklinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeaklinkmobile != null">
+        bespeaklinkmobile = #{bespeaklinkmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bespeakamount != null">
+        bespeakamount = #{bespeakamount,jdbcType=INTEGER},
+      </if>
+      <if test="adultamount != null">
+        adultamount = #{adultamount,jdbcType=INTEGER},
+      </if>
+      <if test="minoramount != null">
+        minoramount = #{minoramount,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        tableid = #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="renouncetime != null">
+        renouncetime = #{renouncetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bespeakid = #{bespeakid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.ResourceBespeak">
+    update t_resource_bespeak
+    set userid = #{userid,jdbcType=INTEGER},
+      resourceid = #{resourceid,jdbcType=INTEGER},
+      resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      bespeakday = #{bespeakday,jdbcType=VARCHAR},
+      bespeaklinkman = #{bespeaklinkman,jdbcType=VARCHAR},
+      bespeaklinkmobile = #{bespeaklinkmobile,jdbcType=VARCHAR},
+      bespeakamount = #{bespeakamount,jdbcType=INTEGER},
+      adultamount = #{adultamount,jdbcType=INTEGER},
+      minoramount = #{minoramount,jdbcType=INTEGER},
+      tableid = #{tableid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      renouncetime = #{renouncetime,jdbcType=VARCHAR}
+    where bespeakid = #{bespeakid,jdbcType=INTEGER}
+  </update>
+</mapper>

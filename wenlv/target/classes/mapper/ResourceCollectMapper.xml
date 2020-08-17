@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.ResourceCollectMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.ResourceCollect">
+    <id column="collectid" jdbcType="INTEGER" property="collectid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="resourceid" jdbcType="INTEGER" property="resourceid" />
+    <result column="resourcetoptypeid" jdbcType="INTEGER" property="resourcetoptypeid" />
+    <result column="resourcetypeid" jdbcType="INTEGER" property="resourcetypeid" />
+    <result column="tableid" jdbcType="INTEGER" property="tableid" />
+    <result column="linkurl" jdbcType="VARCHAR" property="linkurl" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    collectid, userid, resourceid, resourcetoptypeid, resourcetypeid, tableid, linkurl, 
+    createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_resource_collect
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllRows" parameterType="com.zte.bean.vo.ResourceCollectVo" resultType="com.zte.bean.vo.ResourceCollectVo">
+    select
+    <include refid="Base_Column_List" />
+    from t_resource_collect
+    <where>
+      <if test="collectid != null">
+        and collectid=#{collectid}
+      </if>
+      <if test="userid != null">
+        and userid=#{userid}
+      </if>
+      <if test="resourceid != null">
+        and resourceid=#{resourceid}
+      </if>
+      <if test="resourcetoptypeid != null">
+        and resourcetoptypeid=#{resourcetoptypeid}
+      </if>
+      <if test="resourcetypeid != null">
+        and resourcetypeid=#{resourcetypeid}
+      </if>
+      <if test="tableid != null">
+        and tableid=#{tableid}
+      </if>
+      <if test="startTime != null and endTime != null">
+        and createtime &gt;= #{startTime} and createtime &lt;= #{endTime}
+      </if>
+    </where>
+    order by createtime desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_resource_collect
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.ResourceCollect">
+    insert into t_resource_collect (collectid, userid, resourceid, 
+      resourcetoptypeid, resourcetypeid, tableid, 
+      linkurl, createtime)
+    values (#{collectid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{resourceid,jdbcType=INTEGER}, 
+      #{resourcetoptypeid,jdbcType=INTEGER}, #{resourcetypeid,jdbcType=INTEGER}, #{tableid,jdbcType=INTEGER}, 
+      #{linkurl,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.vo.ResourceCollectVo">
+    insert into t_resource_collect
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="collectid != null">
+        collectid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="resourceid != null">
+        resourceid,
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid,
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid,
+      </if>
+      <if test="tableid != null">
+        tableid,
+      </if>
+      <if test="linkurl != null">
+        linkurl,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="collectid != null">
+        #{collectid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="linkurl != null">
+        #{linkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceCollect">
+    update t_resource_collect
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        resourceid = #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        tableid = #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="linkurl != null">
+        linkurl = #{linkurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.ResourceCollect">
+    update t_resource_collect
+    set userid = #{userid,jdbcType=INTEGER},
+      resourceid = #{resourceid,jdbcType=INTEGER},
+      resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      tableid = #{tableid,jdbcType=INTEGER},
+      linkurl = #{linkurl,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=VARCHAR}
+    where collectid = #{collectid,jdbcType=INTEGER}
+  </update>
+</mapper>

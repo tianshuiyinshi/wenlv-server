@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.SysConfigMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.SysConfig">
+    <id column="configid" jdbcType="INTEGER" property="configid" />
+    <result column="configname" jdbcType="VARCHAR" property="configname" />
+    <result column="configkey" jdbcType="VARCHAR" property="configkey" />
+    <result column="configvalue" jdbcType="VARCHAR" property="configvalue" />
+    <result column="configdesc" jdbcType="VARCHAR" property="configdesc" />
+    <result column="status" jdbcType="DECIMAL" property="status" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    configid, configname, configkey, configvalue, configdesc, status, creator, createtime, 
+    updater, updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_config
+    where configid = #{configid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sys_config
+    where configid = #{configid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.SysConfig">
+    insert into t_sys_config (configid, configname, configkey, 
+      configvalue, configdesc, status, 
+      creator, createtime, updater, 
+      updatetime)
+    values (#{configid,jdbcType=INTEGER}, #{configname,jdbcType=VARCHAR}, #{configkey,jdbcType=VARCHAR}, 
+      #{configvalue,jdbcType=VARCHAR}, #{configdesc,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, #{updater,jdbcType=INTEGER}, 
+      #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.SysConfig">
+    insert into t_sys_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="configid != null">
+        configid,
+      </if>
+      <if test="configname != null">
+        configname,
+      </if>
+      <if test="configkey != null">
+        configkey,
+      </if>
+      <if test="configvalue != null">
+        configvalue,
+      </if>
+      <if test="configdesc != null">
+        configdesc,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="configid != null">
+        #{configid,jdbcType=INTEGER},
+      </if>
+      <if test="configname != null">
+        #{configname,jdbcType=VARCHAR},
+      </if>
+      <if test="configkey != null">
+        #{configkey,jdbcType=VARCHAR},
+      </if>
+      <if test="configvalue != null">
+        #{configvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="configdesc != null">
+        #{configdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.SysConfig">
+    update t_sys_config
+    <set>
+      <if test="configname != null">
+        configname = #{configname,jdbcType=VARCHAR},
+      </if>
+      <if test="configkey != null">
+        configkey = #{configkey,jdbcType=VARCHAR},
+      </if>
+      <if test="configvalue != null">
+        configvalue = #{configvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="configdesc != null">
+        configdesc = #{configdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where configid = #{configid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.SysConfig">
+    update t_sys_config
+    set configname = #{configname,jdbcType=VARCHAR},
+      configkey = #{configkey,jdbcType=VARCHAR},
+      configvalue = #{configvalue,jdbcType=VARCHAR},
+      configdesc = #{configdesc,jdbcType=VARCHAR},
+      status = #{status,jdbcType=DECIMAL},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR}
+    where configid = #{configid,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByCfgkey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_config
+    where configkey = #{configkey,jdbcType=INTEGER}
+  </select>
+   <select id="selectAll"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_config
+  </select>
+</mapper>

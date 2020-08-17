@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.Role">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creat_time" jdbcType="VARCHAR" property="creatTime" />
+    <result column="marker" jdbcType="VARCHAR" property="marker" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, role_name, status, creat_time, marker
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_role
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByRoleName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_role
+    where role_name = #{roleName,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAllRows" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_role
+    order by creat_time desc
+  </select>
+  <select id="selectRoles" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_role
+    where role_id in
+    <foreach item="item" index="index" collection="list" open="("
+             separator="," close=")">#{item}</foreach>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_role
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.Role">
+    insert into t_role (id, role_name, status, 
+      creat_time, marker)
+    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{creatTime,jdbcType=VARCHAR}, #{marker,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.Role">
+    insert into t_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creatTime != null">
+        creat_time,
+      </if>
+      <if test="marker != null">
+        marker,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null">
+        #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="marker != null">
+        #{marker,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.Role">
+    update t_role
+    <set>
+      <if test="roleName != null">
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null">
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="marker != null">
+        marker = #{marker,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.Role">
+    update t_role
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creat_time = #{creatTime,jdbcType=VARCHAR},
+      marker = #{marker,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

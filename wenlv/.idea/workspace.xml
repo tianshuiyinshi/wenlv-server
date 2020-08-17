@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="wenlv:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="192cbe11-eae1-471a-a663-9ac798272150" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Arquillian JUnit Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1enz72dVkmx4cz7kRYbK055vhWw" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.zte.dao" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="ServiceTest.RedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wenlv" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zte.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zte.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.zte.dao.ServiceTest" />
+      <option name="METHOD_NAME" value="RedisTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTest.RedisTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wenlv" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zte.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zte.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.zte.dao.ServiceTest" />
+      <option name="METHOD_NAME" value="RedisTest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTest.getJSONObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wenlv" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zte.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zte.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.zte.dao.ServiceTest" />
+      <option name="METHOD_NAME" value="getJSONObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTest.redisTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wenlv" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zte.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zte.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.zte.dao.ServiceTest" />
+      <option name="METHOD_NAME" value="redisTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MybatisGenerator" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="mybatis-generator:generate" />
+                <option value="-e" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="wenlv" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zte.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zte.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ServiceTest.RedisTest" />
+      <item itemvalue="Maven.MybatisGenerator" />
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="JUnit.ServiceTest.redisTest2" />
+      <item itemvalue="JUnit.ServiceTest.RedisTest1" />
+      <item itemvalue="JUnit.ServiceTest.getJSONObject" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="JUnit.ServiceTest.getJSONObject" />
+        <item itemvalue="JUnit.ServiceTest.redisTest2" />
+        <item itemvalue="JUnit.ServiceTest.RedisTest1" />
+        <item itemvalue="JUnit.ServiceTest.RedisTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="192cbe11-eae1-471a-a663-9ac798272150" name="Default Changelist" comment="" />
+      <created>1594971973456</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594971973456</updated>
+      <workItem from="1594971976682" duration="472000" />
+      <workItem from="1595206855995" duration="364567000" />
+      <workItem from="1596699660195" duration="118798000" />
+      <workItem from="1597279746625" duration="69064000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="469" y="363" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1595296748196">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="469" y="363" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595296748196" />
+    <state x="542" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596702182155">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="542" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596702182155" />
+    <state x="786" y="275" key="#com.intellij.ide.util.MemberChooser" timestamp="1597482420254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="786" y="275" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597482420254" />
+    <state x="504" y="361" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1596707477652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="504" y="361" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596707477652" />
+    <state x="860" y="296" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597198654117">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="860" y="296" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597198654117" />
+    <state x="489" y="271" key="FileChooserDialogImpl" timestamp="1596707507035">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="489" y="271" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596707507035" />
+    <state width="1340" height="278" key="GridCell.Tab.0.bottom" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.0.center" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.0.left" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.0.right" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.1.bottom" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.1.center" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.1.left" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="278" key="GridCell.Tab.1.right" timestamp="1597487179923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="278" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597487179923" />
+    <state width="1340" height="326" key="GridCell.Tab.2.bottom" timestamp="1597476493853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="326" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597476493853" />
+    <state width="1340" height="326" key="GridCell.Tab.2.center" timestamp="1597476493853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="326" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597476493853" />
+    <state width="1340" height="326" key="GridCell.Tab.2.left" timestamp="1597476493853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="326" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597476493853" />
+    <state width="1340" height="326" key="GridCell.Tab.2.right" timestamp="1597476493853">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="326" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597476493853" />
+    <state x="356" y="181" key="Maven.ArtifactSearchDialog" timestamp="1597022008233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="356" y="181" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597022008233" />
+    <state x="254" y="152" key="SettingsEditor" timestamp="1596707527283">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="254" y="152" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596707527283" />
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1597279794711">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597279794711" />
+    <state x="957" y="235" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1595586016061">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="957" y="235" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595586016061" />
+    <state x="340" y="261" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597394072743">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="340" y="261" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1597394072743" />
+    <state x="-35" y="65" width="960" height="610" key="dock-window-1" timestamp="1597474136173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-35" y="65" width="960" height="610" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1597474136173" />
+    <state x="689" y="68" width="786" height="806" key="find.popup" timestamp="1597483735101">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="68" width="786" height="806" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597483735101" />
+    <state x="886" y="164" key="refactoring.ChangeSignatureDialog" timestamp="1596704708267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="886" y="164" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596704708267" />
+    <state x="786" y="257" key="run.anything.popup" timestamp="1596077900625">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="786" y="257" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596077900625" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597281451443">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597281451443" />
+  </component>
+</project>

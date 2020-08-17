@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.Admin">
+    <id column="admin_id" jdbcType="INTEGER" property="adminId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="admin_type" jdbcType="INTEGER" property="adminType" />
+    <result column="ent_id" jdbcType="INTEGER" property="entId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    admin_id, account, password, admin_name, mobile, create_time, update_time, salt, 
+    admin_type, ent_id, status
+  </sql>
+  <sql id="Safe_Column_List">
+    admin_id, account, admin_name, mobile, create_time, update_time,
+    admin_type, ent_id, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from t_admin where account = #{account}
+  </select>
+  <select id="selectByAccountAndPassword" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from t_admin where account = #{account} and password = #{password}
+  </select>
+    <select id="selectAll" parameterType="com.zte.bean.Admin" resultMap="BaseResultMap">
+      select
+      <include refid="Safe_Column_List"></include>
+      from t_admin
+      <where>
+        <if test="account != null">
+          and account like CONCAT('%',#{account},'%')
+        </if>
+        <if test="adminName != null">
+          and admin_name like CONCAT('%',#{adminName},'%')
+        </if>
+      </where>
+      order by update_time desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.Admin">
+    insert into t_admin (admin_id, account, password, 
+      admin_name, mobile, create_time, 
+      update_time, salt, admin_type, 
+      ent_id)
+    values (#{adminId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{adminName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{adminType,jdbcType=INTEGER}, 
+      #{entId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.Admin">
+    insert into t_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        admin_id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="adminName != null">
+        admin_name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="adminType != null">
+        admin_type,
+      </if>
+      <if test="entId != null">
+        ent_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        #{adminId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="adminType != null">
+        #{adminType,jdbcType=INTEGER},
+      </if>
+      <if test="entId != null">
+        #{entId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.Admin">
+    update t_admin
+    <set>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="adminType != null">
+        admin_type = #{adminType,jdbcType=INTEGER},
+      </if>
+      <if test="entId != null">
+        ent_id = #{entId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.Admin">
+    update t_admin
+    set password = #{password,jdbcType=VARCHAR},
+      admin_name = #{adminName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      admin_type = #{adminType,jdbcType=INTEGER},
+      ent_id = #{entId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,22 @@
+[main] 2020-08-06 18:16:17.326 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 9292 (C:\yswwork\svnproject\wenlv\wenlv\out\artifacts\wenlv_jar\wenlv.jar started by Administrator in C:\yswwork\svnproject\wenlv\wenlv\out\artifacts\wenlv_jar)
+[main] 2020-08-06 18:16:17.332 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-06 18:16:17.615 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-06 18:16:19.300 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-06 18:16:19.301 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-06 18:16:19.448 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-06 18:16:19.452 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-06 18:16:21.042 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-06 18:16:21.469 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-06 18:16:21.505 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-06 18:16:21.533 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-06 18:16:22.921 INFO  >>> springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: addNewsUsingPOST_1
+[main] 2020-08-06 18:16:23.001 INFO  >>> springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: findNewsUsingPOST_1
+[main] 2020-08-06 18:16:23.009 INFO  >>> springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: updateNewsUsingPOST_1
+[main] 2020-08-06 18:16:23.358 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-06 18:16:23.372 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-06 18:16:23.386 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-06 18:16:23.442 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-06 18:16:23.798 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-06 18:16:23.869 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-06 18:16:23.871 INFO  >>> com.zte.Application - Started Application in 6.767 seconds (JVM running for 7.42)
+[http-nio-8092-exec-1] 2020-08-06 18:16:39.856 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'

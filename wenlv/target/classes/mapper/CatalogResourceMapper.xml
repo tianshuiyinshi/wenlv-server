@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.CatalogResourceMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.CatalogResource">
+    <id column="mapid" jdbcType="INTEGER" property="mapid" />
+    <result column="catalogid" jdbcType="INTEGER" property="catalogid" />
+    <result column="resourceid" jdbcType="INTEGER" property="resourceid" />
+    <result column="resourcetoptypeid" jdbcType="INTEGER" property="resourcetoptypeid" />
+    <result column="resourcetypeid" jdbcType="INTEGER" property="resourcetypeid" />
+    <result column="tableid" jdbcType="INTEGER" property="tableid" />
+    <result column="seqno" jdbcType="INTEGER" property="seqno" />
+    <result column="upflag" jdbcType="INTEGER" property="upflag" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mapid, catalogid, resourceid, resourcetoptypeid, resourcetypeid, tableid, seqno, 
+    upflag, status, creator, createtime, updater, updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_catalog_resource
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllRows" resultType="com.zte.bean.vo.CatalogResourceVo">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_catalog_resource
+    <where>
+      <if test="mapid != null">
+        and mapid = #{mapid}
+      </if>
+      <if test="catalogid != null">
+        and catalogid = #{catalogid}
+      </if>
+      <if test="resourceid != null">
+        and resourceid = #{resourceid}
+      </if>
+
+      <if test="resourcetoptypeid != null">
+        and resourcetoptypeid = #{resourcetoptypeid}
+      </if>
+      <if test="resourcetypeid != null">
+        and resourcetypeid = #{resourcetypeid}
+      </if>
+      <if test="tableid != null">
+        and tableid = #{tableid}
+      </if>
+      <if test="status != null">
+        and status = #{status}
+      </if>
+      <if test="creator != null">
+        and creator = #{creator}
+      </if>
+      <if test="updater != null">
+        and updater = #{updater}
+      </if>
+    </where>
+    order by updatetime desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_catalog_resource
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.CatalogResource">
+    insert into t_catalog_resource (mapid, catalogid, resourceid, 
+      resourcetoptypeid, resourcetypeid, tableid, 
+      seqno, upflag, status, 
+      creator, createtime, updater, 
+      updatetime)
+    values (#{mapid,jdbcType=INTEGER}, #{catalogid,jdbcType=INTEGER}, #{resourceid,jdbcType=INTEGER}, 
+      #{resourcetoptypeid,jdbcType=INTEGER}, #{resourcetypeid,jdbcType=INTEGER}, #{tableid,jdbcType=INTEGER}, 
+      #{seqno,jdbcType=INTEGER}, #{upflag,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, #{updater,jdbcType=INTEGER}, 
+      #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.CatalogResource">
+    insert into t_catalog_resource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mapid != null">
+        mapid,
+      </if>
+      <if test="catalogid != null">
+        catalogid,
+      </if>
+      <if test="resourceid != null">
+        resourceid,
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid,
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid,
+      </if>
+      <if test="tableid != null">
+        tableid,
+      </if>
+      <if test="seqno != null">
+        seqno,
+      </if>
+      <if test="upflag != null">
+        upflag,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mapid != null">
+        #{mapid,jdbcType=INTEGER},
+      </if>
+      <if test="catalogid != null">
+        #{catalogid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="seqno != null">
+        #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="upflag != null">
+        #{upflag,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.CatalogResource">
+    update t_catalog_resource
+    <set>
+      <if test="catalogid != null">
+        catalogid = #{catalogid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        resourceid = #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetoptypeid != null">
+        resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="tableid != null">
+        tableid = #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="seqno != null">
+        seqno = #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="upflag != null">
+        upflag = #{upflag,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.CatalogResource">
+    update t_catalog_resource
+    set catalogid = #{catalogid,jdbcType=INTEGER},
+      resourceid = #{resourceid,jdbcType=INTEGER},
+      resourcetoptypeid = #{resourcetoptypeid,jdbcType=INTEGER},
+      resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      tableid = #{tableid,jdbcType=INTEGER},
+      seqno = #{seqno,jdbcType=INTEGER},
+      upflag = #{upflag,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR}
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </update>
+</mapper>

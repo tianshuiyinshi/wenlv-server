@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.ResourceTypeMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.ResourceType">
+    <id column="resourcetypeid" jdbcType="INTEGER" property="resourcetypeid" />
+    <result column="resourtypename" jdbcType="VARCHAR" property="resourtypename" />
+    <result column="upresourcetypeid" jdbcType="INTEGER" property="upresourcetypeid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    resourcetypeid, resourtypename, upresourcetypeid, status, creator, createtime, updater, 
+    updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_resource_type
+    where resourcetypeid = #{resourcetypeid,jdbcType=INTEGER}
+  </select>
+    <select id="selectByResourceName" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"></include>
+      from t_resource_type
+      where resourtypename = #{resourceName,jdbcType=VARCHAR}
+    </select>
+  <select id="selectAllRows" parameterType="com.zte.bean.vo.ResourceTypeVo" resultType="com.zte.bean.vo.ResourceTypeVo">
+    select
+    t.*
+    from (select
+    this.*,up.resourtypename as upResourceTypeName
+    from t_resource_type this,t_resource_type up
+    WHERE
+    up.resourcetypeid=this.upresourcetypeid
+    UNION
+    select *,upresourcetypeid as upResourceTypeName
+    from t_resource_type
+    WHERE
+    upresourcetypeid is null) t
+    <where>
+      <if test="resourcetypeid != null">
+        and t.resourcetypeid = #{resourcetypeid,jdbcType=INTEGER}
+      </if>
+      <if test="upresourcetypeid != null">
+        and t.upresourcetypeid = #{upresourcetypeid,jdbcType=INTEGER}
+      </if>
+      <if test="status !=null">
+        and t.status = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="resourtypename !=null">
+        and t.resourtypename like CONCAT('%',#{resourtypename},'%')
+      </if>
+      <if test="upResourceTypeName !=null">
+        t.upResourceTypeName like CONCAT('%',#{upResourceTypeName},'%')
+      </if>
+    </where>
+    order by t.updatetime desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_resource_type
+    where resourcetypeid = #{resourcetypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.ResourceType">
+    insert into t_resource_type (resourcetypeid, resourtypename, upresourcetypeid, 
+      status, creator, createtime, 
+      updater, updatetime)
+    values (#{resourcetypeid,jdbcType=INTEGER}, #{resourtypename,jdbcType=VARCHAR}, #{upresourcetypeid,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, 
+      #{updater,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.ResourceType">
+    insert into t_resource_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="resourcetypeid != null">
+        resourcetypeid,
+      </if>
+      <if test="resourtypename != null">
+        resourtypename,
+      </if>
+      <if test="upresourcetypeid != null">
+        upresourcetypeid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="resourcetypeid != null">
+        #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourtypename != null">
+        #{resourtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="upresourcetypeid != null">
+        #{upresourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceType">
+    update t_resource_type
+    <set>
+      <if test="resourtypename != null">
+        resourtypename = #{resourtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="upresourcetypeid != null">
+        upresourcetypeid = #{upresourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where resourcetypeid = #{resourcetypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.ResourceType">
+    update t_resource_type
+    set resourtypename = #{resourtypename,jdbcType=VARCHAR},
+      upresourcetypeid = #{upresourcetypeid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR}
+    where resourcetypeid = #{resourcetypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

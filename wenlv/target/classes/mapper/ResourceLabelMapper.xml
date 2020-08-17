@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.ResourceLabelMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.ResourceLabel">
+    <id column="mapid" jdbcType="INTEGER" property="mapid" />
+    <result column="resourceid" jdbcType="INTEGER" property="resourceid" />
+    <result column="labelid" jdbcType="INTEGER" property="labelid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="tableid" jdbcType="INTEGER" property="tableid" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mapid, resourceid, labelid, status, tableid, creator, createtime, updater, updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_resource_label
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </select>
+    <select id="selectAllRows" parameterType="com.zte.bean.vo.ResourceLabelVo" resultType="com.zte.bean.vo.ResourceLabelVo">
+      select
+      <include refid="Base_Column_List"></include>
+      from t_resource_label
+      <where>
+        <if test="mapid != null">
+          and mapid=#{mapid}
+        </if>
+         <if test="resourceid != null">
+          and resourceid=#{resourceid}
+        </if>
+         <if test="labelid != null">
+          and labelid=#{labelid}
+        </if>
+         <if test="status != null">
+          and status=#{status}
+        </if>
+         <if test="tableid != null">
+          and tableid=#{tableid}
+        </if>
+      </where>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_resource_label
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByLabelId">
+      delete from t_resource_label
+      where labelid = #{labelid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.zte.bean.ResourceLabel">
+    insert into t_resource_label (mapid, resourceid, labelid, 
+      status, tableid, creator, createtime,
+      updater, updatetime)
+    values (#{mapid,jdbcType=INTEGER}, #{resourceid,jdbcType=INTEGER}, #{labelid,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, 
+      #{updater,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.ResourceLabel">
+    insert into t_resource_label
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mapid != null">
+        mapid,
+      </if>
+      <if test="resourceid != null">
+        resourceid,
+      </if>
+      <if test="labelid != null">
+        labelid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+       <if test="tableid != null">
+         tableid,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mapid != null">
+        #{mapid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceid != null">
+        #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="labelid != null">
+        #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+       <if test="tableid != null">
+        #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceLabel">
+    update t_resource_label
+    <set>
+      <if test="resourceid != null">
+        resourceid = #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="labelid != null">
+        labelid = #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+       <if test="tableid != null">
+        status = #{tableid,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.ResourceLabel">
+    update t_resource_label
+    set resourceid = #{resourceid,jdbcType=INTEGER},
+      labelid = #{labelid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      tableid = #{tableid,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR}
+    where mapid = #{mapid,jdbcType=INTEGER}
+  </update>
+</mapper>

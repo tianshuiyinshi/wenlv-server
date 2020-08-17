@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.ResourceSiteMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.ResourceSite">
+    <id column="resourceid" jdbcType="INTEGER" property="resourceid" />
+    <result column="resourcetitle" jdbcType="VARCHAR" property="resourcetitle" />
+    <result column="resourcetypeid" jdbcType="INTEGER" property="resourcetypeid" />
+    <result column="resourceimage" jdbcType="VARCHAR" property="resourceimage" />
+    <result column="resourceipicture" jdbcType="VARCHAR" property="resourceipicture" />
+    <result column="resourceviedo" jdbcType="VARCHAR" property="resourceviedo" />
+    <result column="resourceboards" jdbcType="VARCHAR" property="resourceboards" />
+    <result column="resourcelink" jdbcType="VARCHAR" property="resourcelink" />
+    <result column="opentype" jdbcType="INTEGER" property="opentype" />
+    <result column="openday" jdbcType="VARCHAR" property="openday" />
+    <result column="opentime" jdbcType="VARCHAR" property="opentime" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="hostunit" jdbcType="VARCHAR" property="hostunit" />
+    <result column="maxamount" jdbcType="INTEGER" property="maxamount" />
+    <result column="seqno" jdbcType="INTEGER" property="seqno" />
+    <result column="upflag" jdbcType="INTEGER" property="upflag" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creator" jdbcType="INTEGER" property="creator" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="updater" jdbcType="INTEGER" property="updater" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="auditor" jdbcType="INTEGER" property="auditor" />
+    <result column="audittime" jdbcType="VARCHAR" property="audittime" />
+    <result column="auditdesc" jdbcType="VARCHAR" property="auditdesc" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zte.bean.ResourceSite">
+    <result column="resourcedetail" jdbcType="LONGVARCHAR" property="resourcedetail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    resourceid, resourcetitle, resourcetypeid, resourceimage, resourceipicture, resourceviedo, 
+    resourceboards, resourcelink, opentype, openday, opentime, address, longitude, latitude, 
+    hostunit, maxamount, seqno, upflag, status, creator, createtime, updater, updatetime, 
+    auditor, audittime, auditdesc
+  </sql>
+  <sql id="Blob_Column_List">
+    resourcedetail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.zte.bean.vo.ResourceSiteVo">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_resource_site
+    where resourceid = #{resourceid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_resource_site
+    where resourceid = #{resourceid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.ResourceSite">
+    insert into t_resource_site (resourceid, resourcetitle, resourcetypeid, 
+      resourceimage, resourceipicture, resourceviedo, 
+      resourceboards, resourcelink, opentype, 
+      openday, opentime, address, 
+      longitude, latitude, hostunit, 
+      maxamount, seqno, upflag, 
+      status, creator, createtime, 
+      updater, updatetime, auditor, 
+      audittime, auditdesc, resourcedetail
+      )
+    values (#{resourceid,jdbcType=INTEGER}, #{resourcetitle,jdbcType=VARCHAR}, #{resourcetypeid,jdbcType=INTEGER}, 
+      #{resourceimage,jdbcType=VARCHAR}, #{resourceipicture,jdbcType=VARCHAR}, #{resourceviedo,jdbcType=VARCHAR}, 
+      #{resourceboards,jdbcType=VARCHAR}, #{resourcelink,jdbcType=VARCHAR}, #{opentype,jdbcType=INTEGER}, 
+      #{openday,jdbcType=VARCHAR}, #{opentime,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{hostunit,jdbcType=VARCHAR}, 
+      #{maxamount,jdbcType=INTEGER}, #{seqno,jdbcType=INTEGER}, #{upflag,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{createtime,jdbcType=VARCHAR}, 
+      #{updater,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{auditor,jdbcType=INTEGER}, 
+      #{audittime,jdbcType=VARCHAR}, #{auditdesc,jdbcType=VARCHAR}, #{resourcedetail,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.ResourceSite">
+    insert into t_resource_site
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="resourceid != null">
+        resourceid,
+      </if>
+      <if test="resourcetitle != null">
+        resourcetitle,
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid,
+      </if>
+      <if test="resourceimage != null">
+        resourceimage,
+      </if>
+      <if test="resourceipicture != null">
+        resourceipicture,
+      </if>
+      <if test="resourceviedo != null">
+        resourceviedo,
+      </if>
+      <if test="resourceboards != null">
+        resourceboards,
+      </if>
+      <if test="resourcelink != null">
+        resourcelink,
+      </if>
+      <if test="opentype != null">
+        opentype,
+      </if>
+      <if test="openday != null">
+        openday,
+      </if>
+      <if test="opentime != null">
+        opentime,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="hostunit != null">
+        hostunit,
+      </if>
+      <if test="maxamount != null">
+        maxamount,
+      </if>
+      <if test="seqno != null">
+        seqno,
+      </if>
+      <if test="upflag != null">
+        upflag,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="auditor != null">
+        auditor,
+      </if>
+      <if test="audittime != null">
+        audittime,
+      </if>
+      <if test="auditdesc != null">
+        auditdesc,
+      </if>
+      <if test="resourcedetail != null">
+        resourcedetail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="resourceid != null">
+        #{resourceid,jdbcType=INTEGER},
+      </if>
+      <if test="resourcetitle != null">
+        #{resourcetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypeid != null">
+        #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceimage != null">
+        #{resourceimage,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceipicture != null">
+        #{resourceipicture,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceviedo != null">
+        #{resourceviedo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceboards != null">
+        #{resourceboards,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcelink != null">
+        #{resourcelink,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null">
+        #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="openday != null">
+        #{openday,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null">
+        #{opentime,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="hostunit != null">
+        #{hostunit,jdbcType=VARCHAR},
+      </if>
+      <if test="maxamount != null">
+        #{maxamount,jdbcType=INTEGER},
+      </if>
+      <if test="seqno != null">
+        #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="upflag != null">
+        #{upflag,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=INTEGER},
+      </if>
+      <if test="audittime != null">
+        #{audittime,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdesc != null">
+        #{auditdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcedetail != null">
+        #{resourcedetail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceSite">
+    update t_resource_site
+    <set>
+      <if test="resourcetitle != null">
+        resourcetitle = #{resourcetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcetypeid != null">
+        resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      </if>
+      <if test="resourceimage != null">
+        resourceimage = #{resourceimage,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceipicture != null">
+        resourceipicture = #{resourceipicture,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceviedo != null">
+        resourceviedo = #{resourceviedo,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceboards != null">
+        resourceboards = #{resourceboards,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcelink != null">
+        resourcelink = #{resourcelink,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null">
+        opentype = #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="openday != null">
+        openday = #{openday,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null">
+        opentime = #{opentime,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="hostunit != null">
+        hostunit = #{hostunit,jdbcType=VARCHAR},
+      </if>
+      <if test="maxamount != null">
+        maxamount = #{maxamount,jdbcType=INTEGER},
+      </if>
+      <if test="seqno != null">
+        seqno = #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="upflag != null">
+        upflag = #{upflag,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="auditor != null">
+        auditor = #{auditor,jdbcType=INTEGER},
+      </if>
+      <if test="audittime != null">
+        audittime = #{audittime,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdesc != null">
+        auditdesc = #{auditdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcedetail != null">
+        resourcedetail = #{resourcedetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where resourceid = #{resourceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zte.bean.ResourceSite">
+    update t_resource_site
+    set resourcetitle = #{resourcetitle,jdbcType=VARCHAR},
+      resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      resourceimage = #{resourceimage,jdbcType=VARCHAR},
+      resourceipicture = #{resourceipicture,jdbcType=VARCHAR},
+      resourceviedo = #{resourceviedo,jdbcType=VARCHAR},
+      resourceboards = #{resourceboards,jdbcType=VARCHAR},
+      resourcelink = #{resourcelink,jdbcType=VARCHAR},
+      opentype = #{opentype,jdbcType=INTEGER},
+      openday = #{openday,jdbcType=VARCHAR},
+      opentime = #{opentime,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      hostunit = #{hostunit,jdbcType=VARCHAR},
+      maxamount = #{maxamount,jdbcType=INTEGER},
+      seqno = #{seqno,jdbcType=INTEGER},
+      upflag = #{upflag,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=INTEGER},
+      audittime = #{audittime,jdbcType=VARCHAR},
+      auditdesc = #{auditdesc,jdbcType=VARCHAR},
+      resourcedetail = #{resourcedetail,jdbcType=LONGVARCHAR}
+    where resourceid = #{resourceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.ResourceSite">
+    update t_resource_site
+    set resourcetitle = #{resourcetitle,jdbcType=VARCHAR},
+      resourcetypeid = #{resourcetypeid,jdbcType=INTEGER},
+      resourceimage = #{resourceimage,jdbcType=VARCHAR},
+      resourceipicture = #{resourceipicture,jdbcType=VARCHAR},
+      resourceviedo = #{resourceviedo,jdbcType=VARCHAR},
+      resourceboards = #{resourceboards,jdbcType=VARCHAR},
+      resourcelink = #{resourcelink,jdbcType=VARCHAR},
+      opentype = #{opentype,jdbcType=INTEGER},
+      openday = #{openday,jdbcType=VARCHAR},
+      opentime = #{opentime,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      hostunit = #{hostunit,jdbcType=VARCHAR},
+      maxamount = #{maxamount,jdbcType=INTEGER},
+      seqno = #{seqno,jdbcType=INTEGER},
+      upflag = #{upflag,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      auditor = #{auditor,jdbcType=INTEGER},
+      audittime = #{audittime,jdbcType=VARCHAR},
+      auditdesc = #{auditdesc,jdbcType=VARCHAR}
+    where resourceid = #{resourceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeysSelective" parameterType="com.zte.bean.dto.AuditDto">
+    update t_resource_site
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="auditor != null">
+        auditor = #{auditor,jdbcType=INTEGER},
+      </if>
+      <if test="audittime != null">
+        audittime = #{audittime,jdbcType=VARCHAR},
+      </if>
+      <if test="auditdesc != null">
+        auditdesc = #{auditdesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where resourceid in
+    <foreach item="item" index="index" collection="resourceIds" open="("
+             separator="," close=")">#{item}</foreach>
+  </update>
+
+  <select id="selectAll" parameterType="com.zte.bean.vo.ResourceSiteVo" resultType="com.zte.bean.vo.ResourceSiteVo">
+    select 
+     n.resourceid, n.resourcetitle, n.resourcetypeid, n.resourceimage, n.resourceipicture, n.resourceviedo, 
+    n.resourceboards, n.resourcelink, n.opentype, n.openday, n.opentime, n.address, n.longitude, n.latitude, 
+    n.hostunit, n.maxamount, n.seqno, n.upflag, n.status, n.creator, n.createtime, n.updater, n.updatetime, 
+    n.auditor, n.audittime, n.auditdesc,n.resourcedetail,
+    t.resourtypename
+    from t_resource_site n
+    left join t_resource_type t
+    on n.resourcetypeid=t.resourcetypeid
+    <where>
+    	<if test="resourceid !=null">
+    		and n.resourceid=#{resourceid}
+    	</if>
+    	<if test="status !=null">
+    		and n.status=#{status}
+    	</if>
+    	<if test="resourcetypeid !=null">
+    		and n.resourcetypeid=#{resourcetypeid}
+    	</if>
+    	<if test="resourcetitle !=null">
+    		and n.resourcetitle like CONCAT('%',#{resourcetitle},'%')
+    	</if>
+       <if test="resourtypename !=null">
+        and t.resourtypename like CONCAT('%',#{resourtypename},'%')
+       </if>
+    </where>
+  	order by n.updatetime desc
+  </select>
+</mapper>

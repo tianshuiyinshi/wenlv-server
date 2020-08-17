@@ -1,0 +1,256 @@
+[http-nio-8092-exec-1] 2020-08-15 09:12:46.656 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 09:32:04.747 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 10284 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 09:32:04.753 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 09:32:04.980 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 09:32:06.590 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 09:32:06.591 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 09:32:06.805 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 09:32:06.809 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 09:32:08.754 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 09:32:09.479 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 09:32:09.510 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 09:32:09.543 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 09:32:10.058 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 09:32:10.066 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 09:32:10.079 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 09:32:10.111 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 09:32:10.425 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 09:32:10.473 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 09:32:10.474 INFO  >>> com.zte.Application - Started Application in 6.145 seconds (JVM running for 7.878)
+[http-nio-8092-exec-1] 2020-08-15 09:32:15.169 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 09:37:41.384 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 18700 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 09:37:41.390 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 09:37:41.625 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 09:37:43.325 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 09:37:43.326 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 09:37:43.544 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 09:37:43.548 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 09:37:47.146 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 09:37:48.003 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 09:37:48.058 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 09:37:48.131 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 09:37:48.805 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 09:37:48.823 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 09:37:48.873 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 09:37:48.923 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 09:37:49.423 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 09:37:49.522 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 09:37:49.529 INFO  >>> com.zte.Application - Started Application in 8.513 seconds (JVM running for 9.97)
+[http-nio-8092-exec-1] 2020-08-15 09:38:04.719 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 09:43:42.857 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 17660 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 09:43:42.861 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 09:43:43.060 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 09:43:44.638 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 09:43:44.639 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 09:43:44.843 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 09:43:44.847 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 09:43:48.299 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 09:43:49.103 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 09:43:49.163 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 09:43:49.256 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 09:43:49.887 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 09:43:49.904 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 09:43:49.950 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 09:43:50.011 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 09:43:50.501 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 09:43:50.588 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 09:43:50.591 INFO  >>> com.zte.Application - Started Application in 8.106 seconds (JVM running for 9.563)
+[http-nio-8092-exec-1] 2020-08-15 09:44:02.052 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 09:45:26.063 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 19676 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 09:45:26.069 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 09:45:26.297 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 09:45:27.652 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 09:45:27.653 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 09:45:27.829 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 09:45:27.832 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 09:45:29.149 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 09:45:29.600 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 09:45:29.616 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 09:45:29.639 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 09:45:30.004 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 09:45:30.010 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 09:45:30.020 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 09:45:30.043 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 09:45:30.384 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 09:45:30.423 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 09:45:30.425 INFO  >>> com.zte.Application - Started Application in 4.724 seconds (JVM running for 6.023)
+[http-nio-8092-exec-1] 2020-08-15 09:45:30.930 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 09:48:01.559 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 17508 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 09:48:01.564 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 09:48:01.845 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 09:48:03.348 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 09:48:03.349 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 09:48:03.511 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 09:48:03.515 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 09:48:04.890 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 09:48:05.380 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 09:48:05.396 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 09:48:05.422 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 09:48:05.801 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 09:48:05.807 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 09:48:05.815 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 09:48:05.840 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 09:48:06.125 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 09:48:06.168 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 09:48:06.169 INFO  >>> com.zte.Application - Started Application in 4.973 seconds (JVM running for 6.229)
+[http-nio-8092-exec-2] 2020-08-15 09:49:08.495 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 15:28:16.226 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 21096 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 15:28:16.230 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 15:28:16.473 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 15:28:17.933 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 15:28:17.934 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 15:28:18.122 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 15:28:18.126 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 15:28:19.545 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 15:28:20.017 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 15:28:20.037 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 15:28:20.067 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 15:28:20.543 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 15:28:20.554 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 15:28:20.566 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 15:28:20.592 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 15:28:20.871 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 15:28:20.911 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 15:28:20.912 INFO  >>> com.zte.Application - Started Application in 5.218 seconds (JVM running for 7.014)
+[http-nio-8092-exec-1] 2020-08-15 15:29:40.693 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 17:18:05.958 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 15424 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:18:05.991 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:18:06.267 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:18:08.557 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 17:18:08.558 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 17:18:08.738 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 17:18:08.740 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 17:18:10.216 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:18:10.675 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:18:10.692 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:18:10.718 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:18:11.280 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 17:18:11.288 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 17:18:11.303 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 17:18:11.341 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:18:11.683 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:18:11.726 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:18:11.727 INFO  >>> com.zte.Application - Started Application in 6.105 seconds (JVM running for 7.65)
+[http-nio-8092-exec-1] 2020-08-15 17:19:47.308 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 17:21:01.667 INFO  >>> org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.zte.dao.ServiceTest], using SpringBootContextLoader
+[main] 2020-08-15 17:21:01.675 INFO  >>> org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.zte.dao.ServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[main] 2020-08-15 17:21:01.679 INFO  >>> org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zte.dao.ServiceTest]: ServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[main] 2020-08-15 17:21:01.991 INFO  >>> org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zte.Application for test class com.zte.dao.ServiceTest
+[main] 2020-08-15 17:21:02.001 INFO  >>> org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[main] 2020-08-15 17:21:02.048 INFO  >>> org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5939a379, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@e1de817, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@52102734, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3541cb24, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2177849e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@40cb8df7, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@13b13b5d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2892dae4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@355ce81c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@29647f75, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3315d2d7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@d6e7bab]
+[main] 2020-08-15 17:21:02.802 INFO  >>> com.zte.dao.ServiceTest - Starting ServiceTest on 7TAV70GMCNQG825 with PID 20048 (started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:21:02.802 INFO  >>> com.zte.dao.ServiceTest - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:21:03.838 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:21:08.698 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:21:09.489 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:21:09.533 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:21:09.573 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:21:10.983 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:21:11.374 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:21:11.438 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:21:11.439 INFO  >>> com.zte.dao.ServiceTest - Started ServiceTest in 9.203 seconds (JVM running for 10.994)
+[http-nio-8092-exec-9] 2020-08-15 17:21:42.766 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 1400014954, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[main] 2020-08-15 17:25:35.567 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 21308 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:25:35.591 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:25:35.876 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:25:37.370 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 17:25:37.372 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 17:25:37.533 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 17:25:37.535 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 17:25:38.888 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:25:39.346 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:25:39.362 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:25:39.387 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:25:39.804 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 17:25:39.809 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 17:25:39.820 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 17:25:39.847 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:25:40.128 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:25:40.171 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:25:40.172 INFO  >>> com.zte.Application - Started Application in 4.992 seconds (JVM running for 6.331)
+[http-nio-8092-exec-1] 2020-08-15 17:25:49.361 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[http-nio-8092-exec-1] 2020-08-15 17:25:49.517 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 2046876346, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[main] 2020-08-15 17:26:27.084 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 4564 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:26:27.088 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:26:27.335 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:26:28.845 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 17:26:28.846 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 17:26:29.023 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 17:26:29.029 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 17:26:30.403 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:26:31.009 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:26:31.026 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:26:31.052 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:26:31.466 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 17:26:31.473 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 17:26:31.482 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 17:26:31.509 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:26:31.815 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:26:31.858 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:26:31.860 INFO  >>> com.zte.Application - Started Application in 5.143 seconds (JVM running for 6.335)
+[http-nio-8092-exec-2] 2020-08-15 17:29:16.542 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[http-nio-8092-exec-2] 2020-08-15 17:29:16.718 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 370623917, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[main] 2020-08-15 17:38:44.542 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 19956 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:38:44.545 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:38:44.748 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:38:46.100 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 17:38:46.101 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 17:38:46.273 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 17:38:46.276 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 17:38:47.617 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:38:48.090 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:38:48.107 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:38:48.133 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:38:48.546 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 17:38:48.553 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 17:38:48.563 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 17:38:48.586 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:38:48.886 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:38:48.926 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:38:48.926 INFO  >>> com.zte.Application - Started Application in 4.709 seconds (JVM running for 6.054)
+[http-nio-8092-exec-1] 2020-08-15 17:38:49.253 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 17:41:39.702 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 20608 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 17:41:39.706 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 17:41:40.053 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 17:41:41.712 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 17:41:41.713 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 17:41:41.897 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 17:41:41.899 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 17:41:43.265 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 17:41:43.732 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 17:41:43.748 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 17:41:43.774 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 17:41:44.165 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 17:41:44.172 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 17:41:44.181 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 17:41:44.206 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[main] 2020-08-15 17:41:44.488 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 17:41:44.530 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 17:41:44.531 INFO  >>> com.zte.Application - Started Application in 5.13 seconds (JVM running for 6.495)
+[http-nio-8092-exec-2] 2020-08-15 17:42:04.833 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[http-nio-8092-exec-1] 2020-08-15 18:18:55.269 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 1477135018, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[http-nio-8092-exec-6] 2020-08-15 18:24:52.510 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 69701065, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[main] 2020-08-15 18:26:21.684 INFO  >>> com.zte.Application - Starting Application on 7TAV70GMCNQG825 with PID 2844 (C:\yswwork\svnproject\wenlv\wenlv\target\classes started by Administrator in C:\yswwork\svnproject\wenlv\wenlv)
+[main] 2020-08-15 18:26:21.688 INFO  >>> com.zte.Application - The following profiles are active: dev
+[background-preinit] 2020-08-15 18:26:21.956 INFO  >>> org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+[main] 2020-08-15 18:26:23.498 INFO  >>> org.apache.catalina.core.StandardService - Starting service Tomcat
+[main] 2020-08-15 18:26:23.499 INFO  >>> org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.5
+[localhost-startStop-1] 2020-08-15 18:26:23.702 INFO  >>> org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[localhost-startStop-1] 2020-08-15 18:26:23.705 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring embedded WebApplicationContext
+[main] 2020-08-15 18:26:25.142 INFO  >>> springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+[main] 2020-08-15 18:26:25.619 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+[main] 2020-08-15 18:26:25.640 INFO  >>> springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[main] 2020-08-15 18:26:25.677 INFO  >>> springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+[main] 2020-08-15 18:26:26.066 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8092"]
+[main] 2020-08-15 18:26:26.072 INFO  >>> org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8092]
+[main] 2020-08-15 18:26:26.081 INFO  >>> org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+[main] 2020-08-15 18:26:26.105 INFO  >>> com.zte.common.config.InitDataSource - 正在连接数据库。。。
+[http-nio-8092-exec-1] 2020-08-15 18:26:26.263 INFO  >>> org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/wenlv/rest] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[main] 2020-08-15 18:26:26.486 INFO  >>> com.zte.common.config.InitDataSource - 连接数据库完成
+[main] 2020-08-15 18:26:26.535 INFO  >>> com.zte.common.config.InitRedis - redis连接成功
+[main] 2020-08-15 18:26:26.537 INFO  >>> com.zte.Application - Started Application in 5.169 seconds (JVM running for 6.531)
+[http-nio-8092-exec-10] 2020-08-15 18:26:43.790 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 1610390643, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[http-nio-8092-exec-5] 2020-08-15 18:27:14.230 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 825390855, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[http-nio-8092-exec-9] 2020-08-15 18:30:01.452 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 711076333, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[http-nio-8092-exec-6] 2020-08-15 18:41:38.786 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 527755854, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
+[http-nio-8092-exec-8] 2020-08-15 18:42:35.496 INFO  >>> com.zte.common.utils.SystemUtils - AdminVo [Hash = 92936778, adminId=1, account=test, password=null, adminName=超级管理员, mobile=654321, createTime=null, updateTime=20200730100412, salt=null, adminType=null, entId=null, serialVersionUID=1]
