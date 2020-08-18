@@ -13,7 +13,7 @@ public interface ResourceSiteMapper {
 
     int insert(ResourceSite record);
 
-    int insertSelective(ResourceSite record);
+    Integer insertSelective(ResourceSiteVo record);
 
     ResourceSiteVo selectByPrimaryKey(Integer resourceid);
 

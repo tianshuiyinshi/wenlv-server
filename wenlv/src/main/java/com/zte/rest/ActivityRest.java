@@ -86,53 +86,118 @@ public class ActivityRest {
 	
 	/**
 	 * 新增新闻资讯
-	 * @param record
+	 * @param body
 	 * @return
 	 */
 	@ApiOperation("新增活动资源接口")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="body",
+					value ="实例：{\"record\":\\{\"resourcetitle\":\"test\"},\"labelIds\":[2,3]}",
+					required=true )
+	})
 	@PostMapping("/addActivity")
-	public JsonResult addActivity(@RequestBody ResourceActivity record) {
+	public JsonResult addActivity(@RequestBody JSONObject body) {
 		JsonResult result;
 		AdminVo admin=SystemUtils.getAdminInfo(req);
-		if(admin!=null&&record!=null){
-			String currentTime = DateUtil.getDBDatetime();
-			record.setCreator(admin.getAdminId());
-			record.setUpdater(admin.getAdminId());
-			record.setCreatetime(currentTime);
-			record.setUpdatetime(currentTime);
-			resourceActivityService.insertResourceActivity(record);
-			result = JsonResult.getSuccess("success");
+		if (body!=null&&body.containsKey("record")){
+			ResourceActivityVo record = body.getObject("record", ResourceActivityVo.class);
+			List<Integer> labelIds=null;
+			if (body.containsKey("labelIds")){
+				labelIds = body.getObject("labelIds", ArrayList.class);
+			}
+			if(admin!=null&&record!=null){
+				String currentTime = DateUtil.getDBDatetime();
+				record.setCreator(admin.getAdminId());
+				record.setUpdater(admin.getAdminId());
+				record.setCreatetime(currentTime);
+				record.setUpdatetime(currentTime);
+				record.setStatus(2);
+				Integer resourceid = resourceActivityService.insertResourceActivity(record);
+				if (labelIds!=null&&labelIds.size()!=0){
+					ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+					resourceLabelVo.setCreator(admin.getAdminId());
+					resourceLabelVo.setUpdater(admin.getAdminId());
+					resourceLabelVo.setCreatetime(currentTime);
+					resourceLabelVo.setUpdatetime(currentTime);
+					resourceLabelVo.setTableid(1);
+					resourceLabelVo.setResourceid(resourceid);
+					resourceLabelVo.setStatus(1);
+					for (Integer labelId : labelIds) {
+						resourceLabelVo.setLabelid(labelId);
+						resourceLabelService.addResourceLabel(resourceLabelVo);
+					}
+				}
+				result = JsonResult.getSuccess("success");
+			}else {
+				result = JsonResult.getFail("参数内容为空");
+			}
 		}else {
 			result = JsonResult.getFail("参数为空");
 		}
-
 		return result;
 	}
 	
 	
 	/**
 	 * 修改新闻资讯
-	 * @param record
+	 * @param body
 	 * @return
 	 */
 	@ApiOperation("修改活动资源接口")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="body",
+					value ="实例：{\"record\":\\{\"resourcetitle\":\"test\",\"resourceid\":5},\"labelIds\":[2,3]}",
+					required=true )
+	})
 	@PostMapping("/updateActivity")
-	public JsonResult updateActivity(@RequestBody ResourceActivity record) {
+	public JsonResult updateActivity(@RequestBody JSONObject body) {
+		JsonResult result;
 		AdminVo admin=SystemUtils.getAdminInfo(req);
 		String currentTime = DateUtil.getDBDatetime();
 
-		if(record.getStatus()==1&&record.getStatus()==3) {
-			//如果是审核，则添加审核人及审核时间
-			record.setAuditor(admin.getAdminId());
-			record.setAudittime(currentTime);
-		}else if(record.getUpdatetime()!=null){
-			record.setUpdater(admin.getAdminId());
+		if(body!=null&&body.containsKey("record")){
+			ResourceActivityVo record = body.getObject("record", ResourceActivityVo.class);
+			List<Integer> labelIds=null;
+			if (body.containsKey("labelIds")){
+				labelIds = body.getObject("labelIds", ArrayList.class);
+			}
+			if(record.getStatus()!=null&&(record.getStatus()==1||record.getStatus()==3)) {
+				//如果是审核，则添加审核人及审核时间
+				record.setAuditor(admin.getAdminId());
+				record.setAudittime(currentTime);
+			}else if(record.getUpdatetime()!=null){
+				record.setUpdater(admin.getAdminId());
+			}else {
+				record.setUpdatetime(null);
+				record.setUpdater(admin.getAdminId());
+				//如果有标签id列表
+				if (labelIds.size()!=0){
+					Integer resourceid = record.getResourceid();
+					if (resourceid==null||resourceActivityService.selectByPrimaryKey(resourceid)==null){
+						return JsonResult.getFail("未获取到正确的resourceid");
+					}
+					ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+					resourceLabelVo.setCreator(admin.getAdminId());
+					resourceLabelVo.setUpdater(admin.getAdminId());
+					resourceLabelVo.setCreatetime(currentTime);
+					resourceLabelVo.setUpdatetime(currentTime);
+					resourceLabelVo.setTableid(1);
+					resourceLabelVo.setResourceid(resourceid);
+					resourceLabelVo.setStatus(1);
+					resourceLabelService.deleteResourceLabelByResourceId(resourceid);
+					for (Integer labelId : labelIds) {
+						resourceLabelVo.setLabelid(labelId);
+						resourceLabelService.addResourceLabel(resourceLabelVo);
+					}
+				}
+			}
+			resourceActivityService.updateResourceActivity(record);
+			result = JsonResult.getSuccess("success");
+
 		}else {
-			record.setUpdater(admin.getAdminId());
-			record.setUpdatetime(null);
+			result = JsonResult.getFail("参数为空");
 		}
-		resourceActivityService.updateResourceActivity(record);
-		return JsonResult.getSuccess("success");
+		return result;
 	}
 
 	/**
@@ -154,15 +219,18 @@ public class ActivityRest {
 		JsonResult result;
 		AdminVo admin=SystemUtils.getAdminInfo(req);
 		String currentTime = DateUtil.getDBDatetime();
-
-		if (auditDto!=null&&auditDto.getStatus()!=null&&auditDto.getResourceIds()!=null){
-			//如果是审核，则添加审核人及审核时间
-			auditDto.setAuditor(admin.getAdminId());
-			auditDto.setAudittime(currentTime);
-			resourceActivityService.updateByActivityIds(auditDto);
-			result = JsonResult.getSuccess("success");
+		if (auditDto!=null&&auditDto.getStatus()!=null) {
+			if (auditDto.getStatus() != 1 && auditDto.getStatus() != 3) {
+				result = JsonResult.getFail("审批状态不合规");
+			} else {
+				//如果是审核，则添加审核人及审核时间
+				auditDto.setAuditor(admin.getAdminId());
+				auditDto.setAudittime(currentTime);
+				resourceActivityService.updateByActivityIds(auditDto);
+				result = JsonResult.getSuccess("success");
+			}
 		}else {
-			result = JsonResult.getFail("参数或状态为空");
+			result =JsonResult.getFail("参数或状态为空");
 		}
 		return result;
 	}
@@ -175,17 +243,21 @@ public class ActivityRest {
 			@ApiImplicitParam(name="records",value ="请求示例：[{\"updatetime\":\"20201001000000\"},{\"updatetime\":\"20201002000000\"}]\n" )
 	})
 	@PostMapping("/updateTwoActivityLocation")
-	public JsonResult updateTwoActivityLocation(@RequestBody List<ResourceActivity> records) {
+	public JsonResult updateTwoActivityLocation(@RequestBody List<ResourceActivityVo> records) {
 		JsonResult result;
 
 		if (records!=null&&records.size()==2){
-			ResourceActivity thisResourceActivity = records.get(0);
-			ResourceActivity otherResourceActivity = records.get(1);
-			String thisUpdatetime = thisResourceActivity.getUpdatetime();
-			thisResourceActivity.setUpdatetime(otherResourceActivity.getUpdatetime());
-			otherResourceActivity.setUpdatetime(thisUpdatetime);
-			updateActivity(thisResourceActivity);
-			updateActivity(otherResourceActivity);
+			ResourceActivityVo thisResourceActivityVo = records.get(0);
+			ResourceActivityVo otherResourceActivityVo = records.get(1);
+			String thisUpdatetime = thisResourceActivityVo.getUpdatetime();
+			thisResourceActivityVo.setUpdatetime(otherResourceActivityVo.getUpdatetime());
+			otherResourceActivityVo.setUpdatetime(thisUpdatetime);
+			//调用 updateActivity 进行调换
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("record",thisResourceActivityVo);
+			updateActivity(jsonObject);
+			jsonObject.put("record",otherResourceActivityVo);
+			updateActivity(jsonObject);
 			result = JsonResult.getSuccess("success");
 		}else {
 			result = JsonResult.getFail("需要选中两个资源");

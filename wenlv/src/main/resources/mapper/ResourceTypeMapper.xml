@@ -54,7 +54,7 @@
         and t.resourtypename like CONCAT('%',#{resourtypename},'%')
       </if>
       <if test="upResourceTypeName !=null">
-        t.upResourceTypeName like CONCAT('%',#{upResourceTypeName},'%')
+        and t.upResourceTypeName like CONCAT('%',#{upResourceTypeName},'%')
       </if>
     </where>
     order by t.updatetime desc

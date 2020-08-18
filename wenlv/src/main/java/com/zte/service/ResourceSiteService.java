@@ -18,13 +18,13 @@ public class ResourceSiteService {
 	@Autowired
 	ResourceSiteMapper resourceSiteMapper;
 	
-	public boolean insertResourceSite(ResourceSite record) {
-		record.setStatus(1);
-		String currentTime = DateUtil.getDBDatetime();
-		record.setCreatetime(currentTime);
-		record.setUpdatetime(currentTime);
-		int i=resourceSiteMapper.insertSelective(record);
-		return i==1?true:false;
+	public Integer insertResourceSite(ResourceSiteVo record) {
+//		record.setStatus(2);
+//		String currentTime = DateUtil.getDBDatetime();
+//		record.setCreatetime(currentTime);
+//		record.setUpdatetime(currentTime);
+		resourceSiteMapper.insertSelective(record);
+		return record.getResourceid();
 	}
 	
 

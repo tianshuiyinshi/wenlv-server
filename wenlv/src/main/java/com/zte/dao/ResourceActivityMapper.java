@@ -11,11 +11,11 @@ public interface ResourceActivityMapper {
 
     int insert(ResourceActivity record);
 
-    int insertSelective(ResourceActivity record);
+    int insertSelective(ResourceActivityVo record);
 
     ResourceActivityVo selectByPrimaryKey(Integer resourceid);
 
-    int updateByPrimaryKeySelective(ResourceActivity record);
+    int updateByPrimaryKeySelective(ResourceActivityVo record);
 
     int updateByPrimaryKeyWithBLOBs(ResourceActivity record);
 

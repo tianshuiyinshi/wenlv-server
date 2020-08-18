@@ -17,13 +17,13 @@ public class ResourceNewsService {
 	@Autowired
 	ResourceNewsMapper resourceNewsMapper;
 	
-	public boolean insertResourceNews(ResourceNews record) {
-		record.setStatus(1);
-		String currentTime = DateUtil.getDBDatetime();
-		record.setCreatetime(currentTime);
-		record.setUpdatetime(currentTime);
-		int i=resourceNewsMapper.insertSelective(record);
-		return i==1?true:false;
+	public Integer insertResourceNews(ResourceNewsVo record) {
+//		record.setStatus(2);
+//		String currentTime = DateUtil.getDBDatetime();
+//		record.setCreatetime(currentTime);
+//		record.setUpdatetime(currentTime);
+		resourceNewsMapper.insertSelective(record);
+		return record.getResourceid();
 	}
 	
 

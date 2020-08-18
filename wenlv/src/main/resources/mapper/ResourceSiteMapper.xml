@@ -75,7 +75,10 @@
       #{audittime,jdbcType=VARCHAR}, #{auditdesc,jdbcType=VARCHAR}, #{resourcedetail,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zte.bean.ResourceSite">
+  <insert id="insertSelective" parameterType="com.zte.bean.vo.ResourceSiteVo">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="resourceid">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into t_resource_site
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="resourceid != null">

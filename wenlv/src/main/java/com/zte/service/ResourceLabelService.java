@@ -41,4 +41,8 @@ public class ResourceLabelService {
     public Integer deleteResourceLabelByLabelId(Integer sysLabelId) {
         return resourceLabelMapper.deleteByLabelId(sysLabelId);
     }
+
+    public Integer deleteResourceLabelByResourceId(Integer resourceId) {
+        return resourceLabelMapper.deleteByResourceId(resourceId);
+    }
 }

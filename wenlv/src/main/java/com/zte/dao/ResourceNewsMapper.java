@@ -14,7 +14,7 @@ public interface ResourceNewsMapper {
 
     int insert(ResourceNews record);
 
-    int insertSelective(ResourceNews record);
+    Integer insertSelective(ResourceNewsVo record);
 
     ResourceNewsVo selectByPrimaryKey(Integer resourceid);
 

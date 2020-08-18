@@ -75,6 +75,9 @@
       #{updater,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zte.bean.Catalog">
+    <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="catalogid">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into t_catalog
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="catalogid != null">

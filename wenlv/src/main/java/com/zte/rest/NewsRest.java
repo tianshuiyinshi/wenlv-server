@@ -3,10 +3,12 @@ package com.zte.rest;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.zte.bean.ResourceActivity;
 import com.zte.bean.SysLabel;
 import com.zte.bean.dto.AuditDto;
+import com.zte.bean.vo.ResourceActivityVo;
 import com.zte.bean.vo.ResourceLabelVo;
 import com.zte.service.ResourceLabelService;
 import com.zte.service.SysLabelService;
@@ -60,7 +62,7 @@ public class NewsRest {
 	public JsonResult findNews(
 			@PathVariable("pageNum")Integer pageNum,
 			@PathVariable("pageSize")Integer pageSize,
-			@RequestBody ResourceNewsVo record) {
+			@RequestBody(required = false) ResourceNewsVo record) {
 
 		PageHelper.startPage(pageNum,pageSize);
 		List<ResourceNewsVo> resourceNewsVos = resourceNewsService.selectAll(record);
@@ -71,7 +73,7 @@ public class NewsRest {
 			List<ResourceLabelVo> resourceLabelVosForResult = new ArrayList<>();
 			ResourceLabelVo resourceLabelVoForQuery = new ResourceLabelVo();
 			resourceLabelVoForQuery.setResourceid(resourceNewsVo.getResourceid());
-			resourceLabelVoForQuery.setTableid(1);
+			resourceLabelVoForQuery.setTableid(3);
 			List<ResourceLabelVo> resourceLabelVosForCircle = resourceLabelService.queryAllRows(resourceLabelVoForQuery);
 			for (ResourceLabelVo labelVo : resourceLabelVosForCircle) {
 				SysLabel sysLabel = sysLabelService.querySysLabelById(labelVo.getLabelid());
@@ -87,56 +89,118 @@ public class NewsRest {
 	
 	/**
 	 * 新增新闻资讯
-	 * @param record
+	 * @param body
 	 * @return
 	 */
 	@ApiOperation("资讯资源新增接口")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="body",
+					value ="实例：{\"record\":\\{\"resourcetitle\":\"test\"},\"labelIds\":[2,3]}",
+					required=true )
+	})
 	@PostMapping("/addNews")
-	public JsonResult addNews(@RequestBody ResourceNews record) {
+	public JsonResult addNews(@RequestBody JSONObject body) {
 		JsonResult result;
 		AdminVo admin=SystemUtils.getAdminInfo(req);
-
-		if (record!=null&&admin!=null){
-			String currentTime = DateUtil.getDBDatetime();
-			record.setCreator(admin.getAdminId());
-			record.setUpdater(admin.getAdminId());
-			record.setUpdatetime(currentTime);
-			record.setCreatetime(currentTime);
-			record.setStatus(1);
-			resourceNewsService.insertResourceNews(record);
-			result = JsonResult.getSuccess("success");
+		if (body!=null&&body.containsKey("record")){
+			ResourceNewsVo record = body.getObject("record", ResourceNewsVo.class);
+			List<Integer> labelIds=null;
+			if (body.containsKey("labelIds")){
+				labelIds = body.getObject("labelIds", ArrayList.class);
+			}
+			if(admin!=null&&record!=null){
+				String currentTime = DateUtil.getDBDatetime();
+				record.setCreator(admin.getAdminId());
+				record.setUpdater(admin.getAdminId());
+				record.setCreatetime(currentTime);
+				record.setUpdatetime(currentTime);
+				record.setStatus(2);
+				Integer resourceid = resourceNewsService.insertResourceNews(record);
+				if (labelIds!=null&&labelIds.size()!=0){
+					ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+					resourceLabelVo.setCreator(admin.getAdminId());
+					resourceLabelVo.setUpdater(admin.getAdminId());
+					resourceLabelVo.setCreatetime(currentTime);
+					resourceLabelVo.setUpdatetime(currentTime);
+					resourceLabelVo.setTableid(3);
+					resourceLabelVo.setResourceid(resourceid);
+					resourceLabelVo.setStatus(1);
+					for (Integer labelId : labelIds) {
+						resourceLabelVo.setLabelid(labelId);
+						resourceLabelService.addResourceLabel(resourceLabelVo);
+					}
+				}
+				result = JsonResult.getSuccess("success");
+			}else {
+				result = JsonResult.getFail("参数内容为空");
+			}
 		}else {
 			result = JsonResult.getFail("参数为空");
 		}
-
-
 		return result;
 	}
 	
 	
 	/**
 	 * 修改新闻资讯
-	 * @param record
+	 * @param body
 	 * @return
 	 */
 	@ApiOperation("资讯资源修改接口")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="body",
+					value ="实例：{\"record\":\\{\"resourcetitle\":\"test\",\"resourceid\":6},\"labelIds\":[2,3]}",
+					required=true )
+	})
 	@PostMapping("/updateNews")
-	public JsonResult updateNews(@RequestBody ResourceNews record) {
+	public JsonResult updateNews(@RequestBody JSONObject body) {
+		JsonResult result;
 		AdminVo admin=SystemUtils.getAdminInfo(req);
 		String currentTime = DateUtil.getDBDatetime();
 
-		if(record.getStatus()==1&&record.getStatus()==3) {
-			//如果是审核，则添加审核人及审核时间
-			record.setAuditor(admin.getAdminId());
-			record.setAudittime(currentTime);
-		}else if(record.getUpdatetime()!=null){
-			record.setUpdater(admin.getAdminId());
+		if(body!=null&&body.containsKey("record")){
+			ResourceNewsVo record = body.getObject("record", ResourceNewsVo.class);
+			List<Integer> labelIds=null;
+			if (body.containsKey("labelIds")){
+				labelIds = body.getObject("labelIds", ArrayList.class);
+			}
+			if(record.getStatus()!=null&&(record.getStatus()==1||record.getStatus()==3)) {
+				//如果是审核，则添加审核人及审核时间
+				record.setAuditor(admin.getAdminId());
+				record.setAudittime(currentTime);
+			}else if(record.getUpdatetime()!=null){
+				record.setUpdater(admin.getAdminId());
+			}else {
+				record.setUpdatetime(null);
+				record.setUpdater(admin.getAdminId());
+				//如果有标签id列表
+				if (labelIds.size()!=0){
+					Integer resourceid = record.getResourceid();
+					if (resourceid==null||resourceNewsService.selectByPrimaryKey(resourceid)==null){
+						return JsonResult.getFail("未获取到正确的resourceid");
+					}
+					ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+					resourceLabelVo.setCreator(admin.getAdminId());
+					resourceLabelVo.setUpdater(admin.getAdminId());
+					resourceLabelVo.setCreatetime(currentTime);
+					resourceLabelVo.setUpdatetime(currentTime);
+					resourceLabelVo.setTableid(2);
+					resourceLabelVo.setResourceid(resourceid);
+					resourceLabelVo.setStatus(1);
+					resourceLabelService.deleteResourceLabelByResourceId(resourceid);
+					for (Integer labelId : labelIds) {
+						resourceLabelVo.setLabelid(labelId);
+						resourceLabelService.addResourceLabel(resourceLabelVo);
+					}
+				}
+			}
+			resourceNewsService.updateResourceNews(record);
+			result = JsonResult.getSuccess("success");
+
 		}else {
-			record.setUpdater(admin.getAdminId());
-			record.setUpdatetime(null);
+			result = JsonResult.getFail("参数为空");
 		}
-		resourceNewsService.updateResourceNews(record);
-		return JsonResult.getSuccess("success");
+		return result;
 	}
 
 	@ApiOperation("批量修改资讯资源状态接口")
@@ -154,11 +218,15 @@ public class NewsRest {
 		String currentTime = DateUtil.getDBDatetime();
 
 		if (auditDto!=null&&auditDto.getStatus()!=null){
-			//如果是审核，则添加审核人及审核时间
-			auditDto.setAuditor(admin.getAdminId());
-			auditDto.setAudittime(currentTime);
-			resourceNewsService.updateByNewsIds(auditDto);
-			result = JsonResult.getSuccess("success");
+			if (auditDto.getStatus()!=1&&auditDto.getStatus()!=3){
+				result = JsonResult.getFail("审批状态不合规");
+			}else {
+				//如果是审核，则添加审核人及审核时间
+				auditDto.setAuditor(admin.getAdminId());
+				auditDto.setAudittime(currentTime);
+				resourceNewsService.updateByNewsIds(auditDto);
+				result = JsonResult.getSuccess("success");
+			}
 		}else {
 			result = JsonResult.getFail("参数或状态为空");
 		}
@@ -179,8 +247,12 @@ public class NewsRest {
 			String thisUpdatetime = thisResourceNews.getUpdatetime();
 			thisResourceNews.setUpdatetime(otherResourceNews.getUpdatetime());
 			otherResourceNews.setUpdatetime(thisUpdatetime);
-			updateNews(thisResourceNews);
-			updateNews(otherResourceNews);
+			//调用 updateActivity 进行调换
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("record",thisResourceNews);
+			updateNews(jsonObject);
+			jsonObject.put("record",otherResourceNews);
+			updateNews(jsonObject);
 			result = JsonResult.getSuccess("success");
 		}else {
 			result = JsonResult.getFail("需要选中两个资源");

@@ -51,6 +51,10 @@
       delete from t_resource_label
       where labelid = #{labelid,jdbcType=INTEGER}
     </delete>
+    <delete id="deleteByResourceId">
+      delete from t_resource_label
+      where resourceid = #{resourceid,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.zte.bean.ResourceLabel">
     insert into t_resource_label (mapid, resourceid, labelid, 
       status, tableid, creator, createtime,

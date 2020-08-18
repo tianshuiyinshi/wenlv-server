@@ -139,7 +139,7 @@
 		</dependency>
 
 
-		<!--swagger接口生成-->
+		<!--swagger接口文档生成-->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>

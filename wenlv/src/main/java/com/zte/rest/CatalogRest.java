@@ -58,19 +58,21 @@ public class CatalogRest {
     public JsonResult addCatalog(@RequestBody CatalogVo catalogVo){
         JsonResult result;
         AdminVo adminVo = SystemUtils.getAdminInfo(req);
+        Integer adminId = adminVo.getAdminId();
 
         if (catalogVo!=null&&adminVo!=null){
             String currentTime = DateUtil.getDBDatetime();
-            catalogVo.setCreator(adminVo.getAdminId());
-            catalogVo.setUpdater(adminVo.getAdminId());
+            catalogVo.setCreator(adminId);
+            catalogVo.setUpdater(adminId);
             catalogVo.setCreatetime(currentTime);
             catalogVo.setUpdatetime(currentTime);
             catalogVo.setStatus(2);
-            catalogService.addCatalog(catalogVo);
+            Integer catalogId = catalogService.addCatalog(catalogVo);
             if (catalogVo.getCatalogResourceVos()!=null&&catalogVo.getCatalogResourceVos().size()!=0){
                 for (CatalogResourceVo catalogResourceVo : catalogVo.getCatalogResourceVos()) {
-                    catalogResourceVo.setCreator(adminVo.getAdminId());
-                    catalogResourceVo.setUpdater(adminVo.getAdminId());
+                    catalogResourceVo.setCatalogid(catalogId);
+                    catalogResourceVo.setCreator(adminId);
+                    catalogResourceVo.setUpdater(adminId);
                     catalogResourceVo.setCreatetime(currentTime);
                     catalogResourceVo.setUpdatetime(currentTime);
                     catalogResourceVo.setStatus(1);
@@ -92,10 +94,11 @@ public class CatalogRest {
     public JsonResult updateCatalog(@RequestBody CatalogVo catalogVo){
         JsonResult result;
         AdminVo adminVo = SystemUtils.getAdminInfo(req);
+        Integer adminId = adminVo.getAdminId();
 
         if (catalogVo!=null&&adminVo!=null){
             String currentTime = DateUtil.getDBDatetime();
-            catalogVo.setUpdater(adminVo.getAdminId());
+            catalogVo.setUpdater(adminId);
             catalogVo.setUpdatetime(currentTime);
             catalogService.updateCatalog(catalogVo);
             if (catalogVo.getCatalogResourceVos()!=null&&catalogVo.getCatalogResourceVos().size()!=0){
@@ -109,8 +112,8 @@ public class CatalogRest {
                         }
                         catalogResourceService.updateCatalogResource(catalogResourceVo);
                     }else {
-                        catalogResourceVo.setCreator(adminVo.getAdminId());
-                        catalogResourceVo.setUpdater(adminVo.getAdminId());
+                        catalogResourceVo.setCreator(adminId);
+                        catalogResourceVo.setUpdater(adminId);
                         catalogResourceVo.setCreatetime(currentTime);
                         catalogResourceVo.setUpdatetime(currentTime);
                         catalogResourceVo.setStatus(1);

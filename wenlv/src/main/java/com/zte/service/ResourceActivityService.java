@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.zte.bean.ResourceActivity;
 import com.zte.bean.vo.ResourceActivityVo;
-import com.zte.common.utils.DateUtil;
 import com.zte.dao.ResourceActivityMapper;
 
 import java.util.List;
@@ -18,17 +17,17 @@ public class ResourceActivityService {
 	@Autowired
 	ResourceActivityMapper resourceActivityMapper;
 	
-	public boolean insertResourceActivity(ResourceActivity record) {
-		record.setStatus(1);
-		String currentTime = DateUtil.getDBDatetime();
-		record.setCreatetime(currentTime);
-		record.setUpdatetime(currentTime);
-		int i=resourceActivityMapper.insertSelective(record);
-		return i==1?true:false;
+	public Integer insertResourceActivity(ResourceActivityVo record) {
+//		record.setStatus(2);
+//		String currentTime = DateUtil.getDBDatetime();
+//		record.setCreatetime(currentTime);
+//		record.setUpdatetime(currentTime);
+		resourceActivityMapper.insertSelective(record);
+		return record.getResourceid();
 	}
 	
 
-	public boolean updateResourceActivity(ResourceActivity record) {
+	public boolean updateResourceActivity(ResourceActivityVo record) {
 		int i=resourceActivityMapper.updateByPrimaryKeySelective(record);
 		return i==1?true:false;
 	}

@@ -6,8 +6,7 @@ import com.zte.bean.Menu;
 import com.zte.bean.ResourceActivity;
 import com.zte.bean.Role;
 import com.zte.bean.dto.AuditDto;
-import com.zte.bean.vo.CatalogVo;
-import com.zte.bean.vo.RoleVo;
+import com.zte.bean.vo.*;
 import com.zte.common.utils.*;
 import com.zte.service.RoleMenuService;
 import com.zte.service.RoleService;
@@ -269,14 +268,43 @@ public class ServiceTest {
 //      objects.add(resourceActivity2);
 //      System.out.println(JSONObject.toJSONString(objects));
 
-        AuditDto auditDto = new AuditDto();
-        auditDto.setStatus(2);
-        ArrayList<Integer> integers = new ArrayList<>();
-        integers.add(1);
-        integers.add(2);
+//      AuditDto auditDto = new AuditDto();
+//      auditDto.setStatus(2);
+//      ArrayList<Integer> integers = new ArrayList<>();
+//      integers.add(1);
+//      integers.add(2);
 
-        auditDto.setResourceIds(integers);
-        System.out.println(JSONObject.toJSONString(auditDto));
+//      auditDto.setResourceIds(integers);
+//      System.out.println(JSONObject.toJSONString(auditDto));
+
+
+//      ResourceNewsVo resourceNewsVo = new ResourceNewsVo();
+//      ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+//      ResourceLabelVo resourceLabelVo1 = new ResourceLabelVo();
+//      resourceLabelVo.setTableid(1);
+//      resourceLabelVo.setLabelid(1);
+//      resourceLabelVo.setResourceid(1);
+//      resourceLabelVo1.setTableid(1);
+//      resourceLabelVo1.setLabelid(2);
+//      resourceLabelVo1.setResourceid(1);
+//      List<ResourceLabelVo> objects = new ArrayList<>();
+//      objects.add(resourceLabelVo);
+//      objects.add(resourceLabelVo1);
+//      resourceNewsVo.setResourceLabelVos(objects);
+//      System.out.println(JSONObject.toJSONString(resourceNewsVo));
+
+
+        ResourceActivityVo resourceActivityVo1 = new ResourceActivityVo();
+        resourceActivityVo1.setResourcetitle("1");
+        ResourceActivityVo resourceActivityVo2 = new ResourceActivityVo();
+        resourceActivityVo2.setResourcetitle("2");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("record",resourceActivityVo1);
+        jsonObject.put("record",resourceActivityVo2);
+
+        System.out.println(jsonObject.toJSONString());
+
+
 
     }
 }

@@ -21,4 +21,6 @@ public interface ResourceLabelMapper {
     List<ResourceLabelVo> selectAllRows(ResourceLabelVo resourceLabelVo);
 
     Integer deleteByLabelId(Integer sysLabelId);
+
+    Integer deleteByResourceId(Integer resourceId);
 }

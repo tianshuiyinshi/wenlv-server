@@ -77,6 +77,9 @@
       #{resourcedetail,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zte.bean.ResourceActivity">
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="resourceid">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into t_resource_activity
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="resourceid != null">
@@ -251,7 +254,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.ResourceActivity">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.vo.ResourceActivityVo">
     update t_resource_activity
     <set>
       <if test="resourcetitle != null">
