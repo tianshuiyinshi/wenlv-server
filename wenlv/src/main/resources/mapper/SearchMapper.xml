@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zte.dao.SearchMapper">
+  <resultMap id="BaseResultMap" type="com.zte.bean.Search">
+    <id column="searchid" jdbcType="INTEGER" property="searchid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    searchid, userid, keywords, createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_search
+    where searchid = #{searchid,jdbcType=INTEGER}
+  </select>
+    <select id="selectAllRows" parameterType="com.zte.bean.vo.SearchVo" resultType="com.zte.bean.vo.SearchVo">
+      select
+      keywords,count(keywords) as keywordsCount
+      from t_search
+      <where>
+        <if test="userid != null">
+          and userid = #{userid}
+        </if>
+        <if test="keywords != null">
+          and keywords like concat('%',#{keywords},'%')
+        </if>
+        <if test="startTime != null and endTime != null">
+          and createtime &gt;= #{startTime} and createtime &lt;= #{endTime}
+        </if>
+      </where>
+      group by keywords order by keywordsCount
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_search
+    where searchid = #{searchid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zte.bean.Search">
+    insert into t_search (searchid, userid, keywords, 
+      createtime)
+    values (#{searchid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{keywords,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zte.bean.Search">
+    insert into t_search
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        searchid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        #{searchid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zte.bean.Search">
+    update t_search
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where searchid = #{searchid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zte.bean.Search">
+    update t_search
+    set userid = #{userid,jdbcType=INTEGER},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=VARCHAR}
+    where searchid = #{searchid,jdbcType=INTEGER}
+  </update>
+</mapper>

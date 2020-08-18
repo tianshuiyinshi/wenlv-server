@@ -304,6 +304,11 @@ public class ServiceTest {
 
         System.out.println(jsonObject.toJSONString());
 
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        System.out.println(JSONObject.toJSONString(integers));
+
 
 
     }

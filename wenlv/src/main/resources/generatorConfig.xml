@@ -68,8 +68,8 @@
 
 
 
-        <table tableName="t_resource_collect"
-               domainObjectName="ResourceCollect" enableCountByExample="false"
+        <table tableName="t_search"
+               domainObjectName="Search" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
             <property name="useActualColumnNames" value="false"/>

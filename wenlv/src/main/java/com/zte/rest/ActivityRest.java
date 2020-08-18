@@ -8,6 +8,7 @@ import com.github.pagehelper.PageHelper;
 import com.zte.bean.SysLabel;
 import com.zte.bean.dto.AuditDto;
 import com.zte.bean.vo.ResourceLabelVo;
+import com.zte.common.utils.SensitiveWordUtil;
 import com.zte.service.ResourceLabelService;
 import com.zte.service.SysLabelService;
 import io.swagger.annotations.Api;
@@ -170,25 +171,25 @@ public class ActivityRest {
 			}else {
 				record.setUpdatetime(null);
 				record.setUpdater(admin.getAdminId());
-				//如果有标签id列表
-				if (labelIds.size()!=0){
-					Integer resourceid = record.getResourceid();
-					if (resourceid==null||resourceActivityService.selectByPrimaryKey(resourceid)==null){
-						return JsonResult.getFail("未获取到正确的resourceid");
-					}
-					ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
-					resourceLabelVo.setCreator(admin.getAdminId());
-					resourceLabelVo.setUpdater(admin.getAdminId());
-					resourceLabelVo.setCreatetime(currentTime);
-					resourceLabelVo.setUpdatetime(currentTime);
-					resourceLabelVo.setTableid(1);
-					resourceLabelVo.setResourceid(resourceid);
-					resourceLabelVo.setStatus(1);
-					resourceLabelService.deleteResourceLabelByResourceId(resourceid);
-					for (Integer labelId : labelIds) {
-						resourceLabelVo.setLabelid(labelId);
-						resourceLabelService.addResourceLabel(resourceLabelVo);
-					}
+			}
+			//如果有标签id列表
+			if (labelIds!=null&&labelIds.size()!=0){
+				Integer resourceid = record.getResourceid();
+				if (resourceid==null||resourceActivityService.selectByPrimaryKey(resourceid)==null){
+					return JsonResult.getFail("未获取到正确的resourceid");
+				}
+				ResourceLabelVo resourceLabelVo = new ResourceLabelVo();
+				resourceLabelVo.setCreator(admin.getAdminId());
+				resourceLabelVo.setUpdater(admin.getAdminId());
+				resourceLabelVo.setCreatetime(currentTime);
+				resourceLabelVo.setUpdatetime(currentTime);
+				resourceLabelVo.setTableid(1);
+				resourceLabelVo.setResourceid(resourceid);
+				resourceLabelVo.setStatus(1);
+				resourceLabelService.deleteResourceLabelByResourceId(resourceid);
+				for (Integer labelId : labelIds) {
+					resourceLabelVo.setLabelid(labelId);
+					resourceLabelService.addResourceLabel(resourceLabelVo);
 				}
 			}
 			resourceActivityService.updateResourceActivity(record);
